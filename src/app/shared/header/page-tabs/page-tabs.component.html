@@ -1,0 +1,9 @@
+<mat-button-toggle-group
+  name="page-tabs"
+  aria-label="Page Tabs"
+  (change)="onTabChange($event)"
+  [value]="currentRoute"
+>
+  <mat-button-toggle value="/tonalty">Тональности</mat-button-toggle>
+  <mat-button-toggle value="/chord">Аккорды</mat-button-toggle>
+</mat-button-toggle-group>
