@@ -16,7 +16,6 @@ import { HeaderModule } from './shared/header/header.module';
 @NgModule({
   declarations: [
     AppComponent,
-    // HeaderComponent,
     LayoutComponent,
     PageNotFoundComponent,
   ],

@@ -20,7 +20,7 @@ export class PageTabsComponent {
       });
   }
 
-  onTabChange(event: MatButtonToggleChange): void {
+  handleTabChange(event: MatButtonToggleChange): void {
     this.router.navigate([event.value]);
   }
 }

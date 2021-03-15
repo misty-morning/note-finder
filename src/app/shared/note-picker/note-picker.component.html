@@ -1,0 +1,11 @@
+<mat-button-toggle-group
+    [value]="note"
+    (change)="handleNoteChange($event)"
+>
+    <mat-button-toggle
+        *ngFor="let note of notes"
+        [value]="note"
+    >
+        {{note}}
+    </mat-button-toggle>
+</mat-button-toggle-group>
