@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ENote } from 'src/app/models/notes';
+import { EMode } from 'src/app/models/modes';
 
 @Component({
   selector: 'app-tonality-note-finder',
@@ -9,15 +10,15 @@ import { ENote } from 'src/app/models/notes';
 export class TonalityNoteFinderComponent implements OnInit {
 
   tonic: ENote;
+  mode: EMode;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  handleTonicChange(note: ENote): void {
-    // console.log("handleTonicChange", note);
-    this.tonic = note;
-  }
+  // handleTonicChange(note: ENote): void {
+  //   this.tonic = note;
+  // }
 
 }

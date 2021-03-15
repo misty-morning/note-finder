@@ -8,20 +8,26 @@ import { MatButtonToggleChange } from '@angular/material/button-toggle';
   styleUrls: ['./note-picker.component.scss']
 })
 export class NotePickerComponent implements OnInit {
-  @Input() note: ENote;
-
+  private noteValue: ENote;
   notes: ENote[] = Object.values(ENote) as ENote[];
+
+  @Output() noteChange = new EventEmitter();
+
+  @Input()
+  get note(): ENote {
+    return this.noteValue;
+  }
+
+  set note(value: ENote) {
+    this.noteValue = value;
+    this.noteChange.emit(this.noteValue);
+  }
 
   constructor() { }
 
-  ngOnInit(): void {
-    // console.log(this.notes);
-  }
+  ngOnInit(): void {}
 
-  @Output() onChange = new EventEmitter<ENote>();
   handleNoteChange(event: MatButtonToggleChange) {
-    // console.log('handleNoteChange value', event)
-    this.onChange.emit(event.value);
+    this.note = event.value;
   }
-
 }

@@ -1,0 +1,11 @@
+<mat-button-toggle-group
+    (change)="handleModeChange($event)"
+    [value]="modeValue"
+>
+    <mat-button-toggle
+        *ngFor="let mode of modes | keyvalue"
+        [value]="mode.key"
+    >
+        {{mode.value.name}}
+    </mat-button-toggle>
+</mat-button-toggle-group>

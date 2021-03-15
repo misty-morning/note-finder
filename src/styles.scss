@@ -1,7 +1,12 @@
 @import 'theming/theming.scss';
+@import 'variables.scss';
 @import 'helpers.scss';
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 
+.line {
+    margin-top: $line-margin;
+    margin-bottom: $line-margin;
+}
