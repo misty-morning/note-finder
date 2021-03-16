@@ -10,5 +10,5 @@
 <div class="line">
     <span *ngIf="tonic">Тоника: {{ tonic }}</span>
     <span *ngIf="tonic && mode">, </span>
-    <span *ngIf="mode">Лад: {{ mode }}</span>
+    <span *ngIf="mode">Лад: {{ modes[mode].name }}</span>
 </div>

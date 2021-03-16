@@ -9,8 +9,7 @@ import { MatButtonToggleChange } from '@angular/material/button-toggle';
 })
 export class ModePickerComponent implements OnInit {
   modeValue: EMode;
-  // modes: EMode[] = Object.values(EMode) as EMode[];
-  modes: TModes = MODES;
+  modes: Readonly<TModes> = MODES;
 
   @Output() modeChange = new EventEmitter();
 
