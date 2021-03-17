@@ -4,11 +4,10 @@ import { Router } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { HeaderComponent } from './shared/header/header.component';
 import { LayoutComponent } from './shared/layout/layout.component';
 import { AppRoutingModule } from './app-routing.module';
-import { TonalityModule } from './tonality/tonality.module';
-import { ChordModule } from './chord/chord.module';
+import { TonalityModule } from './pages/tonality/tonality.module';
+import { ChordModule } from './pages/chord/chord.module';
 import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
 import { HeaderModule } from './shared/header/header.module';
 

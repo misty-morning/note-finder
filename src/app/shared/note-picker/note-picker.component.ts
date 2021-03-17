@@ -1,6 +1,7 @@
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
-import { ENote } from 'src/app/models/notes';
+import { ENote, TNoteNames, NOTE_NAMES} from 'src/app/models/notes';
 import { MatButtonToggleChange } from '@angular/material/button-toggle';
+import { EnumReflection } from 'src/app/utils/utils';
 
 @Component({
   selector: 'app-note-picker',
@@ -9,7 +10,10 @@ import { MatButtonToggleChange } from '@angular/material/button-toggle';
 })
 export class NotePickerComponent implements OnInit {
   private noteValue: ENote;
-  notes: ENote[] = Object.values(ENote) as ENote[];
+  // notes: ENote[] = Object.values(ENote) as ENote[];
+  notes: ENote[] = EnumReflection.getValues(ENote) as ENote[];
+
+  noteNames: Readonly<TNoteNames> = NOTE_NAMES;
 
   @Output() noteChange = new EventEmitter();
 

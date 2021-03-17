@@ -1,0 +1,19 @@
+<h2>Выберете тональность</h2>
+<div class="line">
+    <app-note-picker [(note)]="tonic"></app-note-picker>
+</div>
+
+<div class="line">
+    <app-mode-picker [(mode)]="mode"></app-mode-picker>
+</div>
+
+<div class="line">
+    <span *ngIf="!tonic && !mode">Тональность не выбрана</span>
+    <span *ngIf="tonic">Тоника: {{ noteNames[tonic] }}</span>
+    <span *ngIf="tonic && mode">, </span>
+    <span *ngIf="mode">Лад: {{ modes[mode].name }}</span>
+</div>
+
+<div class="line">
+    <app-note-finder [tonic]="tonic" [mode]="mode"></app-note-finder>
+</div>

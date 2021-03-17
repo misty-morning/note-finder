@@ -5,7 +5,7 @@ export enum EMode {
 
 interface IMode {
     name: string;
-    formula: any;
+    formula: number[];
 }
 
 export type TModes = Record<EMode, IMode>;
@@ -13,10 +13,10 @@ export type TModes = Record<EMode, IMode>;
 export const MODES: TModes = {
     [EMode.MAJOR]: {
         name: 'Мажор',
-        formula: null,
+        formula: [0, 2, 4, 5, 7, 9, 11],
     },
     [EMode.NATURAL_MINOR]: {
         name: 'Натуральный минор',
-        formula: null,
+        formula: [0, 2, 3, 5, 7, 8, 10],
     }
 };
