@@ -5,10 +5,10 @@ import {
   OnChanges,
   SimpleChanges,
 } from '@angular/core';
-import { ENote } from 'src/app/models/notes';
+import { ENote, OCTAVE_LENGTH } from 'src/app/models/notes';
 import { EMode, MODES } from 'src/app/models/modes';
 import { hasPropertyChanged } from 'src/app/utils/utils';
-import { getNoteName } from './note-finder.utils';
+import { getNoteName, getNotesNames, getNotesNamesForSeveralOctaves } from './note-finder.utils';
 
 @Component({
   selector: 'app-note-finder',
@@ -55,18 +55,26 @@ export class NoteFinderComponent implements OnInit, OnChanges {
       const { formula } = MODES[this.mode];
       const notes = [];
 
-      // // notes.push(getNoteName(this.tonic, this.octave));
-      // for(let i = 0; i < formula.length; i++) {
-      //   let note = this.tonic as number + formula[i];
-      //   let octave = this.startOctave;
-      //   // if (note > 13) {
-      //   //   note -= 13;
-      //   //   octave++;
-      //   // }
+      const tonic = this.tonic as number;
 
-      //   notes.push(getNoteName(note as ENote, octave));
-      // }
-      this.noteNames = notes;
+      for(let i = 0; i < formula.length; i++) {
+        let note = tonic + formula[i];
+
+        if (note >= OCTAVE_LENGTH) {
+          note = note - OCTAVE_LENGTH;
+        }
+
+        notes.push(note);
+      }
+
+      // console.log("note numbers", notes);
+      // console.log("notes length", notes.length);
+
+      this.noteNames = getNotesNamesForSeveralOctaves(
+        notes as ENote[],
+        this.startOctave,
+        this.endOctave
+      );
     }
   }
 }

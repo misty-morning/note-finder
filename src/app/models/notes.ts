@@ -1,3 +1,5 @@
+export const OCTAVE_LENGTH: number = 12;
+
 export enum ENote {
     C,
     CSharp,
