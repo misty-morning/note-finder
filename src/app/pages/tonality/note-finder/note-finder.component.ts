@@ -5,7 +5,7 @@ import {
   OnChanges,
   SimpleChanges,
 } from '@angular/core';
-import { ENote, OCTAVE_LENGTH } from 'src/app/models/notes';
+import { ENote, NOTE_NAMES, OCTAVE_LENGTH, TNoteNames } from 'src/app/models/notes';
 import { EMode, MODES } from 'src/app/models/modes';
 import { hasPropertyChanged } from 'src/app/utils/utils';
 import { getNoteName, getNotesNames, getNotesNamesForSeveralOctaves } from './note-finder.utils';
@@ -18,6 +18,7 @@ import { getNoteName, getNotesNames, getNotesNamesForSeveralOctaves } from './no
 export class NoteFinderComponent implements OnInit, OnChanges {
   startOctave: number = 3;
   endOctave: number = 4;
+  noteNamesMap: TNoteNames = NOTE_NAMES;
   @Input() tonic: ENote;
   @Input() mode: EMode;
 
