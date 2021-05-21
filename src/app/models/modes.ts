@@ -1,6 +1,7 @@
 export enum EMode {
     MAJOR,
     NATURAL_MINOR,
+    HARMONIC_MINOR,
 }
 
 interface IMode {
@@ -18,5 +19,9 @@ export const MODES: TModes = {
     [EMode.NATURAL_MINOR]: {
         name: 'Натуральный минор',
         formula: [0, 2, 3, 5, 7, 8, 10],
-    }
+    },
+    [EMode.HARMONIC_MINOR]: {
+        name: 'Гармонический минор',
+        formula: [0, 2, 3, 5, 7, 8, 11],
+    },
 };
