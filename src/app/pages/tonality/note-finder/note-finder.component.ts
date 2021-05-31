@@ -1,6 +1,5 @@
 import {
   Component,
-  OnInit,
   Input,
   OnChanges,
   SimpleChanges,
@@ -15,7 +14,7 @@ import { getNoteName, getNotesNames, getNotesNamesForSeveralOctaves } from './no
   templateUrl: './note-finder.component.html',
   styleUrls: ['./note-finder.component.scss'],
 })
-export class NoteFinderComponent implements OnInit, OnChanges {
+export class NoteFinderComponent implements OnChanges {
   startOctave: number = 3;
   endOctave: number = 4;
   noteNamesMap: TNoteNames = NOTE_NAMES;
@@ -26,33 +25,14 @@ export class NoteFinderComponent implements OnInit, OnChanges {
 
   constructor() {}
 
-  ngOnInit(): void {
-    const doSomething = () => console.log('blow me, plz');
-
-    function delay(ms: number): Promise<void> {
-      return new Promise((resolve) => setTimeout(resolve, ms));
-    } 
-
-    async function doSomething10Times(): Promise<void> {
-      for (let i = 0; i < 10; i++) {
-        await delay(3000);
-        doSomething();
-      }
-    };
-
-    doSomething10Times();
-  }
-
   ngOnChanges(changes: SimpleChanges): void {
     if (
-      hasPropertyChanged(changes.tonic) ||
-      hasPropertyChanged(changes.mode)
-      // &&
-      // this.mode && this.tonic
+      (
+        hasPropertyChanged(changes.tonic) ||
+        hasPropertyChanged(changes.mode)
+      )
+      && this.mode && this.tonic
     ) {
-      // console.log("tonic", this.tonic)
-      // console.log("mode", this.mode)
-
       const { formula } = MODES[this.mode];
       const notes = [];
 

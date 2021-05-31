@@ -1,4 +1,5 @@
 import { SimpleChange } from '@angular/core';
+import { isEqual } from 'lodash';
 
 export class EnumReflection {
     private static REGEXP : RegExp = /^[0-9]+$/g;
@@ -34,5 +35,5 @@ export class EnumReflection {
 }
 
 export const hasPropertyChanged = (change: SimpleChange): boolean => {
-    return change && change?.currentValue !== change?.previousValue;
+    return !isEqual(change?.currentValue, change?.previousValue)
 }
