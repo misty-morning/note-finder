@@ -5,7 +5,7 @@ import { TonalityComponent } from './tonality/tonality.component';
 import { NotePickerModule } from '../../shared/note-picker/note-picker.module';
 import { ModePickerComponent } from './mode-picker/mode-picker.component';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
-import { PianoModule } from '../../shared/piano/piano.module';
+import { MatButtonModule } from '@angular/material/button';import { PianoModule } from '../../shared/piano/piano.module';
 import { NoteFinderComponent } from './note-finder/note-finder.component';
 
 
@@ -19,6 +19,7 @@ import { NoteFinderComponent } from './note-finder/note-finder.component';
   imports: [
     CommonModule,
     MatButtonToggleModule,
+    MatButtonModule,
     NotePickerModule,
     PianoModule,
   ],

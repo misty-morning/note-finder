@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { EMode, TModes, MODES } from 'src/app/models/modes';
 import { MatButtonToggleChange } from '@angular/material/button-toggle';
+import {  } from '@angular/material/button';
 
 @Component({
   selector: 'app-mode-picker',
@@ -28,8 +29,16 @@ export class ModePickerComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  handleModeChange(event: MatButtonToggleChange) {
+  getButtonColor(mode): string {
+    return mode.key === this.modeValue ? 'primary' : 'basic'
+  }
+
+  handleModeChangeBtnGroup(event: MatButtonToggleChange) {
     this.mode = event.value;
+  }
+
+  handleModeChange(event) {
+    this.mode = event.currentTarget.dataset?.mode
   }
 
 }
