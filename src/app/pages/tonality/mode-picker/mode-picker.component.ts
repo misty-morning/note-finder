@@ -40,5 +40,4 @@ export class ModePickerComponent implements OnInit {
   handleModeChange(event) {
     this.mode = event.currentTarget.dataset?.mode
   }
-
 }

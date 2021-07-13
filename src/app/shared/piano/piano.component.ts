@@ -32,7 +32,7 @@ export class PianoComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(this.highlitedNotes)
+    console.log('ngOnChanges highlitedNotes', this.highlitedNotes)
 
     if (hasPropertyChanged(changes.noteNames)) {
       this.piano?.reload();

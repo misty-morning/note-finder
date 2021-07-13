@@ -1,3 +1,4 @@
+import {isNumber} from 'lodash';
 import {
   Component,
   Input,
@@ -7,7 +8,7 @@ import {
 import { ENote, NOTE_NAMES, OCTAVE_LENGTH, TNoteNames } from 'src/app/models/notes';
 import { EMode, MODES } from 'src/app/models/modes';
 import { hasPropertyChanged } from 'src/app/utils/utils';
-import { getNoteName, getNotesNames, getNotesNamesForSeveralOctaves } from './note-finder.utils';
+import { getNotesNamesForSeveralOctaves } from './note-finder.utils';
 
 @Component({
   selector: 'app-note-finder',
@@ -31,7 +32,7 @@ export class NoteFinderComponent implements OnChanges {
         hasPropertyChanged(changes.tonic) ||
         hasPropertyChanged(changes.mode)
       )
-      && this.mode && this.tonic
+      && this.mode && isNumber(this.tonic)
     ) {
       const { formula } = MODES[this.mode];
       const notes = [];
